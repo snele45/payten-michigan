@@ -24,8 +24,14 @@ import java.util.Locale;
 public class InsurancePacketsFragment extends Fragment {
 
     private InsurancePacketsViewModel mViewModel;
-    private TextView priceTextView;
-    private int totalPrice = 0;
+    private TextView priceTextViewBasic;
+    private TextView priceTextViewStandard;
+    private TextView priceTextViewPremium;
+
+    private int totalPriceBasic = 1890;
+    private int totalPriceStandard = 2390;
+    private int totalPricePremium = 2990;
+
     public static InsurancePacketsFragment newInstance() {
         return new InsurancePacketsFragment();
     }
@@ -36,13 +42,40 @@ public class InsurancePacketsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_insurance_packets, container, false);
 
         // Initialize views
-        priceTextView = view.findViewById(R.id.priceTextView);
-        CheckBox checkbox1 = view.findViewById(R.id.checkbox1);
-        CheckBox checkbox2 = view.findViewById(R.id.checkbox2);
+        priceTextViewBasic = view.findViewById(R.id.priceTextViewBasic);
+        priceTextViewStandard = view.findViewById(R.id.priceTextViewStandard);
+        priceTextViewPremium = view.findViewById(R.id.priceTextViewPremium);
+
+        CheckBox basic_checkbox1 = view.findViewById(R.id.basic_checkbox1);
+        CheckBox basic_checkbox2 = view.findViewById(R.id.basic_checkbox2);
+        CheckBox basic_checkbox3 = view.findViewById(R.id.basic_checkbox3);
+        CheckBox basic_checkbox4 = view.findViewById(R.id.basic_checkbox4);
+
+        CheckBox standard_checkbox1 = view.findViewById(R.id.standard_checkbox1);
+        CheckBox standard_checkbox2 = view.findViewById(R.id.standard_checkbox2);
+        CheckBox standard_checkbox3 = view.findViewById(R.id.standard_checkbox3);
+        CheckBox standard_checkbox4 = view.findViewById(R.id.standard_checkbox4);
+
+        CheckBox premium_checkbox1 = view.findViewById(R.id.premium_checkbox1);
+        CheckBox premium_checkbox2 = view.findViewById(R.id.premium_checkbox2);
+        CheckBox premium_checkbox3 = view.findViewById(R.id.premium_checkbox3);
+        CheckBox premium_checkbox4 = view.findViewById(R.id.premium_checkbox4);
 
         // Set listeners for checkboxes
-        checkbox1.setOnCheckedChangeListener(new PriceChangeListener(10));
-        checkbox2.setOnCheckedChangeListener(new PriceChangeListener(20));
+        basic_checkbox1.setOnCheckedChangeListener(new PriceChangeListenerBasic(10));
+        basic_checkbox2.setOnCheckedChangeListener(new PriceChangeListenerBasic(20));
+        basic_checkbox3.setOnCheckedChangeListener(new PriceChangeListenerBasic(20));
+        basic_checkbox4.setOnCheckedChangeListener(new PriceChangeListenerBasic(20));
+
+        standard_checkbox1.setOnCheckedChangeListener(new PriceChangeListenerStandard(10));
+        standard_checkbox2.setOnCheckedChangeListener(new PriceChangeListenerStandard(20));
+        standard_checkbox3.setOnCheckedChangeListener(new PriceChangeListenerStandard(20));
+        standard_checkbox4.setOnCheckedChangeListener(new PriceChangeListenerStandard(20));
+
+        premium_checkbox1.setOnCheckedChangeListener(new PriceChangeListenerPremium(10));
+        premium_checkbox2.setOnCheckedChangeListener(new PriceChangeListenerPremium(20));
+        premium_checkbox3.setOnCheckedChangeListener(new PriceChangeListenerPremium(20));
+        premium_checkbox4.setOnCheckedChangeListener(new PriceChangeListenerPremium(20));
 
         return view;
     }
@@ -66,21 +99,57 @@ public class InsurancePacketsFragment extends Fragment {
         return numberFormat.format(price) + " RSD";
     }
 
-    private class PriceChangeListener implements CompoundButton.OnCheckedChangeListener {
+    private class PriceChangeListenerBasic implements CompoundButton.OnCheckedChangeListener {
         private final int price;
 
-        public PriceChangeListener(int price) {
+        public PriceChangeListenerBasic(int price) {
             this.price = price;
         }
 
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             if (isChecked) {
-                totalPrice += price;
+                totalPriceBasic += price;
             } else {
-                totalPrice -= price;
+                totalPriceBasic -= price;
             }
-            priceTextView.setText(formatPrice(totalPrice));
+            priceTextViewBasic.setText(formatPrice(totalPriceBasic));
+        }
+    }
+
+    private class PriceChangeListenerStandard implements CompoundButton.OnCheckedChangeListener {
+        private final int price;
+
+        public PriceChangeListenerStandard(int price) {
+            this.price = price;
+        }
+
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if (isChecked) {
+                totalPriceStandard += price;
+            } else {
+                totalPriceStandard -= price;
+            }
+            priceTextViewStandard.setText(formatPrice(totalPriceStandard));
+        }
+    }
+
+    private class PriceChangeListenerPremium implements CompoundButton.OnCheckedChangeListener {
+        private final int price;
+
+        public PriceChangeListenerPremium(int price) {
+            this.price = price;
+        }
+
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if (isChecked) {
+                totalPricePremium += price;
+            } else {
+                totalPricePremium -= price;
+            }
+            priceTextViewPremium.setText(formatPrice(totalPricePremium));
         }
     }
 

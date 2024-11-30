@@ -37,7 +37,87 @@
                 />
 
             <TextView
-                android:id="@+id/priceTextView"
+                android:id="@+id/priceTextViewBasic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:text="0 RSD"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/desc1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comprehensive health insurance for you and your family."
+                android:layout_marginTop="8dp" />
+
+            <CheckBox
+                android:id="@+id/basic_checkbox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Luggage insurance" />
+
+            <CheckBox
+                android:id="@+id/basic_checkbox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sport risks insurance" />
+
+            <CheckBox
+                android:id="@+id/basic_checkbox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home insurance during trip" />
+
+            <CheckBox
+                android:id="@+id/basic_checkbox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Roadside assistance" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose packet"
+                android:textColor="#ffffff"
+                android:backgroundTint="#F00E1D"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/card1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Standard"
+                android:textSize="26sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/priceTextViewStandard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="26sp"
@@ -54,23 +134,116 @@
                 android:layout_marginTop="8dp" />
 
             <CheckBox
-                android:id="@+id/checkbox1"
+                android:id="@+id/standard_checkbox1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Luggage insurance"
-                android:layout_marginBottom="8dp" />
+                android:text="Luggage insurance" />
 
             <CheckBox
-                android:id="@+id/checkbox2"
+                android:id="@+id/standard_checkbox2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sport risks insurance" />
 
+            <CheckBox
+                android:id="@+id/standard_checkbox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home insurance during trip" />
+
+            <CheckBox
+                android:id="@+id/standard_checkbox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Roadside assistance" />
+
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Choose packet"
+                android:textColor="#ffffff"
+                android:backgroundTint="#F00E1D"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/card2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/title3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Premium"
+                android:textSize="26sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/priceTextViewPremium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:text="0 RSD"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/desc3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comprehensive health insurance for you and your family."
+                android:layout_marginTop="8dp" />
+
+            <CheckBox
+                android:id="@+id/premium_checkbox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Luggage insurance" />
+
+            <CheckBox
+                android:id="@+id/premium_checkbox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sport risks insurance" />
+
+            <CheckBox
+                android:id="@+id/premium_checkbox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home insurance during trip" />
+
+            <CheckBox
+                android:id="@+id/premium_checkbox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Roadside assistance" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose packet"
+                android:textColor="#ffffff"
+                android:backgroundTint="#F00E1D"
                 android:layout_marginTop="8dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
