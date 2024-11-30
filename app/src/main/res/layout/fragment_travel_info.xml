@@ -6,12 +6,25 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
+    <!-- Tekst iznad celog CardView-a -->
+    <TextView
+        android:id="@+id/infoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please provide the necessary informations"
+        android:textSize="19sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/travelCard"
         android:layout_width="0dp"
         android:background="@drawable/white_button"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/infoText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp"
@@ -23,6 +36,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please insert your email"
+                android:textSize="18sp"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter email"
+                android:text="michigan@payten.com"
+                android:textSize="18sp"
+                android:inputType="textEmailAddress" />
 
             <!-- Dropdown za destinaciju -->
             <TextView
@@ -69,7 +98,6 @@
                 android:layout_height="wrap_content"
                 android:text="SELECT END DATE"
                 android:textColor="@color/black" />
-
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
