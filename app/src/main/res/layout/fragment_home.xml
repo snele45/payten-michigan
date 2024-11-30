@@ -23,29 +23,29 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <Button
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button1"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginTop="120dp"
-        android:background="@drawable/rounded_button"
         android:drawableLeft="@drawable/generali_logo"
-        android:textColor="@color/payten_red"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/white_button"
         android:text="OSIGURANJE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title" />/>
+        app:layout_constraintTop_toBottomOf="@id/title" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button2"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/rounded_button"
         android:drawableLeft="@drawable/esim"
-        android:textColor="@color/payten_red"
-        android:text="E SIM"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_button"
+        android:text="eSIM"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,10 +55,9 @@
         android:id="@+id/button3"
         android:layout_width="0dp"
         android:layout_height="80dp"
-        android:layout_marginTop="104dp"
-        android:textColor="@color/payten_red"
-        android:background="@drawable/rounded_button"
         android:drawableLeft="@drawable/bundle"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/red_button"
         android:text="OSTALO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
