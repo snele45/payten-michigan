@@ -3,6 +3,9 @@ package com.example.myapplication;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -16,10 +19,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private TextView priceTextView;
+    private int totalPrice = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +50,22 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_insurancePackets)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+        // Initialize views
+        priceTextView = findViewById(R.id.priceTextView);
+        CheckBox checkbox1 = findViewById(R.id.checkbox1);
+        CheckBox checkbox2 = findViewById(R.id.checkbox2);
+
+        // Set listeners for checkboxes
+        checkbox1.setOnCheckedChangeListener(new PriceChangeListener(10));
+        checkbox2.setOnCheckedChangeListener(new PriceChangeListener(20));
     }
 
     @Override
@@ -62,5 +80,36 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    private String formatPrice(double price) {
+        // Use Serbian locale to apply correct formatting
+        Locale serbianLocale = new Locale("sr", "RS");
+        NumberFormat numberFormat = NumberFormat.getNumberInstance(serbianLocale);
+
+        // Format price to two decimal places
+        numberFormat.setMinimumFractionDigits(2);
+        numberFormat.setMaximumFractionDigits(2);
+
+        return numberFormat.format(price) + " RSD";
+    }
+
+    // Custom OnCheckedChangeListener to update price
+    private class PriceChangeListener implements CompoundButton.OnCheckedChangeListener {
+        private final int price;
+
+        public PriceChangeListener(int price) {
+            this.price = price;
+        }
+
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if (isChecked) {
+                totalPrice += price;
+            } else {
+                totalPrice -= price;
+            }
+            priceTextView.setText(formatPrice(totalPrice));
+        }
     }
 }
