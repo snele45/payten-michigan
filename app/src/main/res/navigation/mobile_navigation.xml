@@ -22,4 +22,10 @@
         android:name="com.example.myapplication.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_insurancePackets"
+        android:name="com.example.myapplication.ui.insurancePackets.InsurancePacketsFragment"
+        android:label="@string/menu_insurancePackets"
+        tools:layout="@layout/fragment_insurance_packets" />
 </navigation>
