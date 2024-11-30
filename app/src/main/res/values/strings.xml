@@ -11,4 +11,11 @@
     <string name="menu_gallery">Galerija</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_insurancePackets">Insurance Packets</string>
+
+    <string-array name="destination_options">
+        <item>Europe, Turkey, Russia, Egypt, or Tunisia</item>
+        <item>All countries in the world except the USA, Canada, Japan, Australia, and China</item>
+        <item>All countries in the world</item>
+    </string-array>
+
 </resources>

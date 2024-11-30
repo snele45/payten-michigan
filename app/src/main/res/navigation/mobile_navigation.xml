@@ -28,4 +28,9 @@
         android:name="com.example.myapplication.ui.insurancePackets.InsurancePacketsFragment"
         android:label="@string/menu_insurancePackets"
         tools:layout="@layout/fragment_insurance_packets" />
+
+    <fragment android:id="@+id/nav_travelInfo"
+        android:name="com.example.myapplication.ui.travelinfo.TravelInfoFragment"
+        android:label="Travel info"
+        tools:layout="@layout/fragment_travel_info"/>
 </navigation>
