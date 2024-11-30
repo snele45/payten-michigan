@@ -62,20 +62,20 @@ public class InsurancePacketsFragment extends Fragment {
         CheckBox premium_checkbox4 = view.findViewById(R.id.premium_checkbox4);
 
         // Set listeners for checkboxes
-        basic_checkbox1.setOnCheckedChangeListener(new PriceChangeListenerBasic(10));
-        basic_checkbox2.setOnCheckedChangeListener(new PriceChangeListenerBasic(20));
-        basic_checkbox3.setOnCheckedChangeListener(new PriceChangeListenerBasic(20));
-        basic_checkbox4.setOnCheckedChangeListener(new PriceChangeListenerBasic(20));
+        basic_checkbox1.setOnCheckedChangeListener(new PriceChangeListenerBasic(200));
+        basic_checkbox2.setOnCheckedChangeListener(new PriceChangeListenerBasic(300));
+        basic_checkbox3.setOnCheckedChangeListener(new PriceChangeListenerBasic(200));
+        basic_checkbox4.setOnCheckedChangeListener(new PriceChangeListenerBasic(900));
 
-        standard_checkbox1.setOnCheckedChangeListener(new PriceChangeListenerStandard(10));
-        standard_checkbox2.setOnCheckedChangeListener(new PriceChangeListenerStandard(20));
-        standard_checkbox3.setOnCheckedChangeListener(new PriceChangeListenerStandard(20));
-        standard_checkbox4.setOnCheckedChangeListener(new PriceChangeListenerStandard(20));
+        standard_checkbox1.setOnCheckedChangeListener(new PriceChangeListenerStandard(200));
+        standard_checkbox2.setOnCheckedChangeListener(new PriceChangeListenerStandard(300));
+        standard_checkbox3.setOnCheckedChangeListener(new PriceChangeListenerStandard(200));
+        standard_checkbox4.setOnCheckedChangeListener(new PriceChangeListenerStandard(900));
 
-        premium_checkbox1.setOnCheckedChangeListener(new PriceChangeListenerPremium(10));
-        premium_checkbox2.setOnCheckedChangeListener(new PriceChangeListenerPremium(20));
-        premium_checkbox3.setOnCheckedChangeListener(new PriceChangeListenerPremium(20));
-        premium_checkbox4.setOnCheckedChangeListener(new PriceChangeListenerPremium(20));
+        premium_checkbox1.setOnCheckedChangeListener(new PriceChangeListenerPremium(200));
+        premium_checkbox2.setOnCheckedChangeListener(new PriceChangeListenerPremium(300));
+        premium_checkbox3.setOnCheckedChangeListener(new PriceChangeListenerPremium(200));
+        premium_checkbox4.setOnCheckedChangeListener(new PriceChangeListenerPremium(900));
 
         return view;
     }
