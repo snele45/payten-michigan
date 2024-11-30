@@ -33,4 +33,9 @@
         android:name="com.example.myapplication.ui.travelinfo.TravelInfoFragment"
         android:label="Travel info"
         tools:layout="@layout/fragment_travel_info"/>
+
+    <fragment android:id="@+id/nav_passport"
+        android:name="com.example.myapplication.ui.passport.PassportFragment"
+        android:label="Travel info"
+        tools:layout="@layout/fragment_passport"/>
 </navigation>
