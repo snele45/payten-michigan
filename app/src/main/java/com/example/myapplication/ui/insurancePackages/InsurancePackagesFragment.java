@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.insurancePackets;
+package com.example.myapplication.ui.insurancePackages;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -14,16 +14,18 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-
-import com.example.myapplication.MainActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import android.widget.Button;
 import com.example.myapplication.R;
+
 
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class InsurancePacketsFragment extends Fragment {
+public class InsurancePackagesFragment extends Fragment {
 
-    private InsurancePacketsViewModel mViewModel;
+    private InsurancePackagesViewModel mViewModel;
     private TextView priceTextViewBasic;
     private TextView priceTextViewStandard;
     private TextView priceTextViewPremium;
@@ -32,14 +34,15 @@ public class InsurancePacketsFragment extends Fragment {
     private int totalPriceStandard = 2390;
     private int totalPricePremium = 2990;
 
-    public static InsurancePacketsFragment newInstance() {
-        return new InsurancePacketsFragment();
+    public static InsurancePackagesFragment newInstance() {
+        return new InsurancePackagesFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_insurance_packets, container, false);
+        View view = inflater.inflate(R.layout.fragment_insurance_packages, container, false);
+
 
         // Initialize views
         priceTextViewBasic = view.findViewById(R.id.priceTextViewBasic);
@@ -77,13 +80,19 @@ public class InsurancePacketsFragment extends Fragment {
         premium_checkbox3.setOnCheckedChangeListener(new PriceChangeListenerPremium(200));
         premium_checkbox4.setOnCheckedChangeListener(new PriceChangeListenerPremium(900));
 
+        Button basicPackageButton = view.findViewById(R.id.basic_package);  // Button to navigate
+        basicPackageButton.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);
+            navController.navigate(R.id.action_nav_insurancePackages_to_nav_travelInfo);
+        });
+
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(InsurancePacketsViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(InsurancePackagesViewModel.class);
         // TODO: Use the ViewModel
     }
 

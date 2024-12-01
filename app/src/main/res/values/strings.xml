@@ -7,10 +7,10 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Micigenovici</string>
-    <string name="menu_gallery">Galerija</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_insurancePackets">Insurance Packets</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_insurancePackages">Insurance Packages</string>
+    <string name="menu_passportScan">Passport Scan</string>
+    <string name="menu_travelInfo">Travel Info</string>
 
     <string-array name="destination_options">
         <item>Europe, Turkey, Russia, Egypt, or Tunisia</item>

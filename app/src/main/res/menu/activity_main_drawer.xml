@@ -11,24 +11,24 @@
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:title="Gallery" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="Menu slideshow" />
         <item
             android:id="@+id/nav_insurancePackets"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="@string/menu_insurancePackages" />
 
         <item
             android:id="@+id/nav_travelInfo"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="PUTOVANJE" />
+            android:title="@string/menu_travelInfo" />
 
         <item
             android:id="@+id/nav_passport"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="PASOS" />
+            android:title="@string/menu_passportScan" />
     </group>
 </menu>

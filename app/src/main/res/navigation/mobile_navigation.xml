@@ -9,33 +9,43 @@
         android:id="@+id/nav_home"
         android:name="com.example.myapplication.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_insurancePackages"
+            app:destination="@id/nav_insurancePackages" />
+    </fragment>
 
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.myapplication.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.myapplication.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Menu Slideshow"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
-        android:id="@+id/nav_insurancePackets"
-        android:name="com.example.myapplication.ui.insurancePackets.InsurancePacketsFragment"
-        android:label="@string/menu_insurancePackets"
-        tools:layout="@layout/fragment_insurance_packets" />
+        android:id="@+id/nav_insurancePackages"
+        android:name="com.example.myapplication.ui.insurancePackages.InsurancePackagesFragment"
+        android:label="@string/menu_insurancePackages"
+        tools:layout="@layout/fragment_insurance_packages" >
+        <action
+            android:id="@+id/action_nav_insurancePackages_to_nav_travelInfo"
+            app:destination="@id/nav_travelInfo" />
+        <action
+            android:id="@+id/action_nav_insurancePackages_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 
     <fragment android:id="@+id/nav_travelInfo"
         android:name="com.example.myapplication.ui.travelinfo.TravelInfoFragment"
-        android:label="Travel info"
-        tools:layout="@layout/fragment_travel_info"/>
+        android:label="@string/menu_travelInfo"
+        tools:layout="@layout/fragment_travel_info">
+        <action
+            android:id="@+id/action_nav_travelInfo_to_nav_insurancePackages"
+            app:destination="@id/nav_insurancePackages" />
+    </fragment>
 
     <fragment android:id="@+id/nav_passport"
         android:name="com.example.myapplication.ui.passport.PassportFragment"
-        android:label="Travel info"
+        android:label="@string/menu_passportScan"
         tools:layout="@layout/fragment_passport"/>
 </navigation>
