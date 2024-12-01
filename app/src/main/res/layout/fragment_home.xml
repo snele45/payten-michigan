@@ -23,8 +23,6 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/insuranceButton"
         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
