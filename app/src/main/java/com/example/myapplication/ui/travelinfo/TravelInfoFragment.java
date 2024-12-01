@@ -62,14 +62,14 @@ public class TravelInfoFragment extends Fragment {
         startDateButton.setOnClickListener(v -> showDatePickerDialog(startDateButton, selectedStartDate));
         endDateButton.setOnClickListener(v -> showDatePickerDialog(endDateButton, selectedEndDate));
 
-        Button nextStepButton = view.findViewById(R.id.nextStepButton);
-        nextStepButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                ((MainActivity)getActivity()).performPayment( new BigDecimal("145.23"));
-
-            }
-        });
+//        Button nextStepButton = view.findViewById(R.id.nextStepButton);
+//        nextStepButton.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                ((MainActivity)getActivity()).performPayment( new BigDecimal("145.23"));
+//
+//            }
+//        });
        // nextStepButton.setOnClickListener(v -> initiatePayment());
     }
 
