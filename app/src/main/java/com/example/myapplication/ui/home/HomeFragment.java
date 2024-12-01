@@ -28,11 +28,18 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
         // Find the button and set an OnClickListener
-        Button navigateButton = root.findViewById(R.id.insuranceButton);
-        navigateButton.setOnClickListener(v -> {
+        Button insuranceButton = root.findViewById(R.id.insuranceButton);
+        insuranceButton.setOnClickListener(v -> {
             // Use Navigation Component to navigate to the other fragment
             NavController navController = Navigation.findNavController(v);
             navController.navigate(R.id.action_nav_home_to_nav_travelInfo);
+        });
+
+        Button esimButton = root.findViewById(R.id.esimButton);
+        esimButton.setOnClickListener(v -> {
+            // Use Navigation Component to navigate to the other fragment
+            NavController navController = Navigation.findNavController(v);
+            navController.navigate(R.id.action_nav_home_to_esim_travel_info);
         });
         return root;
     }
