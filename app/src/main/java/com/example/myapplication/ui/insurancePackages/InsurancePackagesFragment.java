@@ -84,14 +84,17 @@ public class InsurancePackagesFragment extends Fragment {
         premium_checkbox4.setOnCheckedChangeListener(new PriceChangeListenerPremium(900));
 
         Button basicPackageButton = view.findViewById(R.id.basic_package);  // Button to navigate
-        basicPackageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                ((MainActivity)getActivity()).performPayment( new BigDecimal(totalPriceBasic));
+        // basicPackageButton.setOnClickListener(new View.OnClickListener() {
+        //     @Override
+        //     public void onClick(View v){
+        //         ((MainActivity)getActivity()).performPayment( new BigDecimal(totalPriceBasic));
 
-            }
+        //     }
             //    NavController navController = Navigation.findNavController(v);
           //  navController.navigate(R.id.action_nav_insurancePackages_to_nav_travelInfo);
+        basicPackageButton.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);
+            navController.navigate(R.id.action_nav_insurancePackages_to_nav_passport);
         });
 
 
