@@ -30,10 +30,27 @@ public class ESimPacketsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_e_sim_packets, container, false);
 
-        Button toEsimQrCodeButton = view.findViewById(R.id.esimBasicPackageButton);
-        toEsimQrCodeButton.setOnClickListener(v -> {
-            NavController navController = Navigation.findNavController(v);
-            navController.navigate(R.id.action_nav_e_sim_packet_to_nav_qrcode);
+
+
+        Button toEsimQrCodeButtonBasic = view.findViewById(R.id.esimBasicPackageButton);
+        toEsimQrCodeButtonBasic.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);Bundle bundle = new Bundle();
+            bundle.putInt("price", 990); // Hardcoded for demonstration
+            navController.navigate(R.id.action_nav_e_sim_packet_to_nav_qrcode, bundle);
+        });
+
+        Button toEsimQrCodeButtonStandard = view.findViewById(R.id.esimStandardPackageButton);
+        toEsimQrCodeButtonStandard.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);Bundle bundle = new Bundle();
+            bundle.putInt("price", 1990); // Hardcoded for demonstration
+            navController.navigate(R.id.action_nav_e_sim_packet_to_nav_qrcode, bundle);
+        });
+
+        Button toEsimQrCodeButtonPremium = view.findViewById(R.id.esimPremiumPackageButton);
+        toEsimQrCodeButtonPremium.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);Bundle bundle = new Bundle();
+            bundle.putInt("price", 2490 ); // Hardcoded for demonstration
+            navController.navigate(R.id.action_nav_e_sim_packet_to_nav_qrcode, bundle);
         });
 
         return view;    }
