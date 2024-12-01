@@ -29,10 +29,14 @@
         <item
             android:id="@+id/nav_passport"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_passportScan" />
-            android:title="PASOS" />
+            android:title="@string/menu_passportScan"/>
 
         <item
+            android:id="@+id/nav_e_sim_packet"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="eSIM Packages" />
+
+        <item 
             android:id="@+id/nav_qrcode"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="QRCODE" />
