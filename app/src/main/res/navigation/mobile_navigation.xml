@@ -71,4 +71,9 @@
             android:id="@+id/action_esim_travel_info_to_nav_e_sim_packet"
             app:destination="@id/nav_e_sim_packet" />
     </fragment>
+
+    <fragment android:id="@+id/nav_vignette"
+        android:name="com.example.myapplication.ui.vignette.VignetteFragment"
+        android:label="Vignette"
+        tools:layout="@layout/fragment_vignette"/>
 </navigation>
