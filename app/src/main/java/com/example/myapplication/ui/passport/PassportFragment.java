@@ -45,7 +45,7 @@ public class PassportFragment extends Fragment {
         if (context != null) {
             nfcAdapter = NfcAdapter.getDefaultAdapter(context);
             if (nfcAdapter == null) {
-                Toast.makeText(context, "NFC is not available on this device.", Toast.LENGTH_LONG).show();
+           //     Toast.makeText(context, "NFC is not available on this device.", Toast.LENGTH_LONG).show();
             } else if (!nfcAdapter.isEnabled()) {
                 Toast.makeText(context, "NFC is disabled.", Toast.LENGTH_LONG).show();
             }
