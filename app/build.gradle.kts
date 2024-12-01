@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation ("com.journeyapps:zxing-android-embedded:4.1.0")
     implementation ("com.airbnb.android:lottie:3.4.0")
     implementation("com.google.android.material:material:1.9.0")
     implementation ("com.google.code.gson:gson:2.9.0")
