@@ -4,16 +4,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="48dp"
+    android:paddingTop="16dp"
     android:paddingBottom="16dp"
-    tools:context=".ui.insurancePackets.InsurancePacketsFragment">
+    tools:context=".ui.esimPackets.ESimPacketsFragment">
 
-    <!-- Title TextView for "Choose your insurance package" -->
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose your insurance package"
+        android:text="Choose your eSIM package"
         android:paddingLeft="16dp"
         android:textSize="23sp"
         android:textStyle="bold"
@@ -36,7 +35,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- First CardView (Basic) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card1"
                 android:layout_width="0dp"
@@ -70,45 +68,18 @@
                         android:layout_height="wrap_content"
                         android:textSize="26sp"
                         android:textStyle="bold"
-                        android:text="1890 RSD"
+                        android:text="990 RSD"
                         android:textColor="@color/black"
                         android:layout_marginTop="8dp" />
 
                     <TextView
-                        android:id="@+id/desc1"
+                        android:id="@+id/desc11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="."
+                        android:text="Data: 1 GB"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
                         android:layout_marginTop="8dp" />
-
-                    <CheckBox
-                        android:id="@+id/basic_checkbox1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Luggage insurance"
-                        android:buttonTint="@color/black" />
-
-                    <CheckBox
-                        android:id="@+id/basic_checkbox2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sport risks insurance"
-                        android:buttonTint="@color/black" />
-
-                    <CheckBox
-                        android:id="@+id/basic_checkbox3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Home insurance during trip"
-                        android:buttonTint="@color/black" />
-
-                    <CheckBox
-                        android:id="@+id/basic_checkbox4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Roadside assistance"
-                        android:buttonTint="@color/black" />
-
 
                     <Button
                         android:id="@+id/button1"
@@ -118,10 +89,10 @@
                         android:textColor="#ffffff"
                         android:backgroundTint="#F00E1D"
                         android:layout_marginTop="8dp" />
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Second CardView (Standard) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card2"
                 android:layout_width="0dp"
@@ -155,47 +126,18 @@
                         android:layout_height="wrap_content"
                         android:textSize="26sp"
                         android:textStyle="bold"
-                        android:text="2390 RSD"
+                        android:text="1990 RSD"
                         android:textColor="@color/black"
                         android:layout_marginTop="8dp" />
 
                     <TextView
-                        android:id="@+id/desc2"
+                        android:id="@+id/desc21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Comprehensive health insurance for you and your family."
+                        android:text="Data: 5 GB"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
                         android:layout_marginTop="8dp" />
-
-                    <CheckBox
-                        android:id="@+id/standard_checkbox1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Luggage insurance"
-                        android:buttonTint="@color/black" />
-
-
-                    <CheckBox
-                        android:id="@+id/standard_checkbox2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sport risks insurance"
-                        android:buttonTint="@color/black" />
-
-
-                    <CheckBox
-                        android:id="@+id/standard_checkbox3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Home insurance during trip"
-                        android:buttonTint="@color/black" />
-
-
-                    <CheckBox
-                        android:id="@+id/standard_checkbox4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Roadside assistance"
-                        android:buttonTint="@color/black" />
 
 
                     <Button
@@ -209,7 +151,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Third CardView (Premium) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card3"
                 android:layout_width="0dp"
@@ -243,47 +184,18 @@
                         android:layout_height="wrap_content"
                         android:textSize="26sp"
                         android:textStyle="bold"
-                        android:text="2990 RSD"
+                        android:text="2490 RSD"
                         android:textColor="@color/black"
                         android:layout_marginTop="8dp" />
 
                     <TextView
-                        android:id="@+id/desc3"
+                        android:id="@+id/desc31"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Comprehensive health insurance for you and your family."
+                        android:text="Data: 20 GB"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
                         android:layout_marginTop="8dp" />
-
-                    <CheckBox
-                        android:id="@+id/premium_checkbox1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Luggage insurance"
-                        android:buttonTint="@color/black" />
-
-
-                    <CheckBox
-                        android:id="@+id/premium_checkbox2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sport risks insurance"
-                        android:buttonTint="@color/black" />
-
-
-                    <CheckBox
-                        android:id="@+id/premium_checkbox3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Home insurance during trip"
-                        android:buttonTint="@color/black" />
-
-
-                    <CheckBox
-                        android:id="@+id/premium_checkbox4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Roadside assistance"
-                        android:buttonTint="@color/black" />
 
 
                     <Button
