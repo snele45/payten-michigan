@@ -83,7 +83,7 @@ public class InsurancePackagesFragment extends Fragment {
         Button basicPackageButton = view.findViewById(R.id.basic_package);  // Button to navigate
         basicPackageButton.setOnClickListener(v -> {
             NavController navController = Navigation.findNavController(v);
-            navController.navigate(R.id.action_nav_insurancePackages_to_nav_travelInfo);
+            navController.navigate(R.id.action_nav_insurancePackages_to_nav_passport);
         });
 
         return view;

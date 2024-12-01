@@ -23,11 +23,4 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
 
-    <Button
-        android:id="@+id/nextStepButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next Step"
-        android:layout_gravity="center" />
-
 </androidx.drawerlayout.widget.DrawerLayout>

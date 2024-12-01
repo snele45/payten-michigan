@@ -11,6 +11,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +37,15 @@ public class TravelInfoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_travel_info, container, false);
+        View view =  inflater.inflate(R.layout.fragment_travel_info, container, false);
+
+        Button toInsurancePackagesButton = view.findViewById(R.id.travelInfoToPackagesButton);
+        toInsurancePackagesButton.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);
+            navController.navigate(R.id.action_nav_travelInfo_to_nav_insurancePackages);
+        });
+
+        return view;
     }
 
     @Override
@@ -50,14 +60,6 @@ public class TravelInfoFragment extends Fragment {
         startDateButton.setOnClickListener(v -> showDatePickerDialog(startDateButton, selectedStartDate));
         endDateButton.setOnClickListener(v -> showDatePickerDialog(endDateButton, selectedEndDate));
 
-        Button nextStepButton = view.findViewById(R.id.nextStepButton);
-        nextStepButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                ((MainActivity)getActivity()).performPayment();
-
-            }
-        });
        // nextStepButton.setOnClickListener(v -> initiatePayment());
     }
 
