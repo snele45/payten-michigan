@@ -83,8 +83,8 @@
 
                     <Button
                         android:id="@+id/esimBasicPackageButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
                         android:text="Choose package"
                         android:textColor="#ffffff"
                         android:backgroundTint="@color/payten_red"
@@ -141,9 +141,9 @@
 
 
                     <Button
-                        android:id="@+id/button2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/esimStandardPackageButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
                         android:text="Choose package"
                         android:textColor="#ffffff"
                         android:backgroundTint="@color/payten_red"
@@ -199,12 +199,12 @@
 
 
                     <Button
-                        android:id="@+id/button3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/esimPremiumPackageButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
                         android:text="Choose package"
                         android:textColor="#ffffff"
-                        android:backgroundTint="#F00E1D"
+                        android:backgroundTint="@color/payten_red"
                         android:layout_marginTop="8dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
