@@ -9,4 +9,5 @@
     <color name="black">#FFFFFF</color>
     <color name="white">#F6F6F6F6</color>
     <color name="payten_red">#D62523</color>
+    <color name="background_gray">#F8F8F8</color>
 </resources>
