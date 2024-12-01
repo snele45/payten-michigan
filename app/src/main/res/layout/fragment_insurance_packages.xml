@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="16dp"
     android:paddingBottom="16dp"
     tools:context=".ui.insurancePackages.InsurancePackagesFragment">
 
@@ -53,7 +52,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="16dp"
+                    >
 
                     <TextView
                         android:id="@+id/title1"
@@ -113,8 +113,8 @@
 
                     <Button
                         android:id="@+id/basic_package"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
                         android:text="Choose package"
                         android:textColor="#ffffff"
                         android:backgroundTint="@color/payten_red"
@@ -201,8 +201,8 @@
 
                     <Button
                         android:id="@+id/standard_package"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
                         android:text="Choose package"
                         android:textColor="#ffffff"
                         android:backgroundTint="@color/payten_red"
@@ -289,8 +289,8 @@
 
                     <Button
                         android:id="@+id/premium_package"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
                         android:text="Choose package"
                         android:textColor="#ffffff"
                         android:backgroundTint="@color/payten_red"

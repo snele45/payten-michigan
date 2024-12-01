@@ -94,7 +94,23 @@ public class InsurancePackagesFragment extends Fragment {
           //  navController.navigate(R.id.action_nav_insurancePackages_to_nav_travelInfo);
         basicPackageButton.setOnClickListener(v -> {
             NavController navController = Navigation.findNavController(v);
-            navController.navigate(R.id.action_nav_insurancePackages_to_nav_passport);
+            Bundle bundle = new Bundle();
+            bundle.putInt("price", totalPriceBasic);
+            navController.navigate(R.id.action_nav_insurancePackages_to_nav_passport, bundle);
+        });
+        Button standardPackageButton = view.findViewById(R.id.standard_package);  // Button to navigate
+        standardPackageButton.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);
+            Bundle bundle = new Bundle();
+            bundle.putInt("price", totalPriceStandard);
+            navController.navigate(R.id.action_nav_insurancePackages_to_nav_passport, bundle);
+        });
+        Button premiumPackageButton = view.findViewById(R.id.premium_package);  // Button to navigate
+        premiumPackageButton.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);
+            Bundle bundle = new Bundle();
+            bundle.putInt("price", totalPricePremium);
+            navController.navigate(R.id.action_nav_insurancePackages_to_nav_passport, bundle);
         });
 
 

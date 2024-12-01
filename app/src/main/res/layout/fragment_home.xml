@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="30dp"
+    android:paddingTop="32dp"
     tools:context=".ui.home.HomeFragment">
 
 
@@ -17,7 +17,7 @@
         android:layout_marginTop="16dp"
         android:text="Chose the desired service"
         android:textColor="@color/crnaboja"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_nav_home_to_nav_travelInfo"
             app:destination="@id/nav_travelInfo" />
+        <action
+            android:id="@+id/action_nav_home_to_esim_travel_info"
+            app:destination="@id/esim_travel_info" />
     </fragment>
 
 
@@ -44,17 +47,34 @@
     <fragment android:id="@+id/nav_passport"
         android:name="com.example.myapplication.ui.passport.PassportFragment"
         android:label="@string/menu_passportScan"
-        tools:layout="@layout/fragment_passport"/>
+        tools:layout="@layout/fragment_passport">
+        <argument
+            android:name="price"
+            app:argType="integer" />
+    </fragment>
 
     <fragment android:id="@+id/nav_e_sim_packet"
         android:name="com.example.myapplication.ui.esimPackets.ESimPacketsFragment"
         android:label="eSIM Packages"
-        tools:layout="@layout/fragment_e_sim_packets"/>
+        tools:layout="@layout/fragment_e_sim_packets">
+        <action
+            android:id="@+id/action_nav_e_sim_packet_to_nav_qrcode"
+            app:destination="@id/nav_qrcode" />
+    </fragment>
         
     <fragment android:id="@+id/nav_qrcode"
         android:name="com.example.myapplication.ui.qrcode.QrCodeFragment"
         android:label="Travel info"
         tools:layout="@layout/fragment_qr_code"/>
+    <fragment
+        android:id="@+id/esim_travel_info"
+        android:name="com.example.myapplication.ui.esimtravelinfo.EsimTravelInfoFragment"
+        android:label="Esim Travel Info"
+        tools:layout="@layout/fragment_esim_travel_info" >
+        <action
+            android:id="@+id/action_esim_travel_info_to_nav_e_sim_packet"
+            app:destination="@id/nav_e_sim_packet" />
+    </fragment>
 
     <fragment android:id="@+id/nav_vignette"
         android:name="com.example.myapplication.ui.vignette.VignetteFragment"

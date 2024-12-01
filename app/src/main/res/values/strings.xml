@@ -17,6 +17,8 @@
         <item>All countries in the world except the USA, Canada, Japan, Australia, and China</item>
         <item>All countries in the world</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="licence_plate_options">
         <item>Afghanistan</item>
