@@ -1,13 +1,13 @@
-package com.example.myapplication.ui.insurancePackets;
+package com.example.myapplication.ui.insurancePackages;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class InsurancePacketsViewModel extends ViewModel {
+public class InsurancePackagesViewModel extends ViewModel {
     private final MutableLiveData<String> mText;
 
-    public InsurancePacketsViewModel() {
+    public InsurancePackagesViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is insurance packets fragment");
     }
