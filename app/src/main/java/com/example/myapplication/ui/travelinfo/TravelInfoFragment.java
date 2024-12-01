@@ -19,6 +19,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.app.DatePickerDialog;
+
+import java.math.BigDecimal;
 import java.util.Calendar;
 
 import com.example.myapplication.MainActivity;
@@ -54,7 +56,7 @@ public class TravelInfoFragment extends Fragment {
         nextStepButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                ((MainActivity)getActivity()).performPayment();
+                ((MainActivity)getActivity()).performPayment( new BigDecimal("145.23"));
 
             }
         });

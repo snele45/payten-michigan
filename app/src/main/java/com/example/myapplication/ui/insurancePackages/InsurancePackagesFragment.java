@@ -17,9 +17,12 @@ import android.widget.TextView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import android.widget.Button;
+
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 
 
+import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -81,10 +84,17 @@ public class InsurancePackagesFragment extends Fragment {
         premium_checkbox4.setOnCheckedChangeListener(new PriceChangeListenerPremium(900));
 
         Button basicPackageButton = view.findViewById(R.id.basic_package);  // Button to navigate
-        basicPackageButton.setOnClickListener(v -> {
-            NavController navController = Navigation.findNavController(v);
-            navController.navigate(R.id.action_nav_insurancePackages_to_nav_travelInfo);
+        basicPackageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                ((MainActivity)getActivity()).performPayment( new BigDecimal(totalPriceBasic));
+
+            }
+            //    NavController navController = Navigation.findNavController(v);
+          //  navController.navigate(R.id.action_nav_insurancePackages_to_nav_travelInfo);
         });
+
+
 
         return view;
     }

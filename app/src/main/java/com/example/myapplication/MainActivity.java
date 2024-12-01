@@ -219,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    public void performPayment(){
+    public void performPayment(BigDecimal bd){
         EcrJsonReq ecrJsonReq = new EcrJsonReq();
         ecrJsonReq.header = new EcrJsonReq.Header();
         ecrJsonReq.request = new EcrJsonReq.Request();
@@ -228,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
         ecrJsonReq.request.financial.transaction = EcrRequestTransactionType.sale;
         ecrJsonReq.request.financial.amounts = new EcrJsonReq.Amounts();
         ecrJsonReq.request.financial.amounts.currencyCode = "RSD";
-        ecrJsonReq.request.financial.amounts.base = formatAmount(billTotal, false);
+        ecrJsonReq.request.financial.amounts.base = formatAmount(bd, false);
         ecrJsonReq.request.financial.options = new EcrJsonReq.Options();
         ecrJsonReq.request.financial.options.language = "sr";
         ecrJsonReq.request.financial.options.print = "true";
