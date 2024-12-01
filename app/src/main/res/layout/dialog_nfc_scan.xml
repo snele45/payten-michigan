@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+
+    <!-- Tekst koji prikazuje poruku o uspešnom čitanju -->
+    <TextView
+        android:id="@+id/successMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data successfully read"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <ImageView
+        android:id="@+id/tickIcon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center"
+        android:src="@drawable/icons8_tick"
+        android:contentDescription="Success Icon"
+        android:layout_marginBottom="16dp" />
+    <!-- Labela za Full Name -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Full Name"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Input za Full Name -->
+    <EditText
+        android:id="@+id/inputFullName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Full Name"
+        android:enabled="false"
+        android:text="Stefan Neskovic"
+        android:inputType="text"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Labela za Citizen Number -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Citizen Number"
+
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Input za Citizen Number -->
+    <EditText
+        android:id="@+id/inputCitizenNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Citizen Number"
+        android:text="1110000790013"
+        android:inputType="number"
+        android:enabled="false"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Labela za Address -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Input za Address -->
+    <EditText
+        android:id="@+id/inputAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address"
+        android:enabled="false"
+        android:text="Podgradina 33, Kosjeric"
+        android:inputType="text"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Dugme Continue -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonContinue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/red_button"
+        android:text="Continue" />
+</LinearLayout>
