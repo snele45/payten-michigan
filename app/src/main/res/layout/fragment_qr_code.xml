@@ -7,7 +7,7 @@
     android:padding="16dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/passportCard"
+        android:id="@+id/qrCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -23,29 +23,19 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Tekstualni upit za postavljanje pasoša -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Please place your passport here."
+                android:text="Please scan this QR code to install your E-SIM"
                 android:textSize="18sp"
                 android:gravity="center"
                 android:layout_marginBottom="16dp" />
 
-            <!-- Placeholder za GIF sliku -->
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/lottieAnimation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:lottie_fileName="passport.json"
-            app:lottie_loop="true"
-            app:lottie_autoPlay="true"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-            <!-- Replace 'gif_placeholder' with your actual GIF resource identifier -->
-
+            <ImageView
+                android:id="@+id/qrCodeImageView"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

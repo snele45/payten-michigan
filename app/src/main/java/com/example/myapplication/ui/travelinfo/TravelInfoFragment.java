@@ -3,6 +3,8 @@ package com.example.myapplication.ui.travelinfo;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -19,6 +21,7 @@ import android.widget.TextView;
 import android.app.DatePickerDialog;
 import java.util.Calendar;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 
 public class TravelInfoFragment extends Fragment {
@@ -46,8 +49,46 @@ public class TravelInfoFragment extends Fragment {
 
         startDateButton.setOnClickListener(v -> showDatePickerDialog(startDateButton, selectedStartDate));
         endDateButton.setOnClickListener(v -> showDatePickerDialog(endDateButton, selectedEndDate));
+
+        Button nextStepButton = view.findViewById(R.id.nextStepButton);
+        nextStepButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                ((MainActivity)getActivity()).performPayment();
+
+            }
+        });
+       // nextStepButton.setOnClickListener(v -> initiatePayment());
     }
 
+
+    /*private void initiatePayment() {
+        Intent paymentIntent = new Intent("com.payten.ecr.action");
+        paymentIntent.setPackage("com.payten.paytenapos");
+
+        // Definisanje JSON-a za plaćanje
+        String jsonPaymentData = "{"
+                + "\"amount\": 100,"
+                + "\"currency\": \"RSD\","
+                + "\"transactionType\": \"sale\""
+                + "}";
+
+        // Dodavanje JSON podataka kao extra u Intent
+        paymentIntent.putExtra("ecrJson", jsonPaymentData);
+        paymentIntent.putExtra("senderIntentFilter", "com.example.myapplication.RESPONSE");
+        paymentIntent.putExtra("senderPackage", getActivity().getPackageName());
+        paymentIntent.putExtra("senderClass", this.getClass().getName());
+
+        // Opciono: Ako aplikacija mora da reaguje na zaustavljene pakete
+        paymentIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+
+        try {
+            startActivity(paymentIntent);
+        } catch (ActivityNotFoundException e) {
+            Log.e("Payment", "Payment application is not installed.", e);
+        }
+    }
+*/
     private void showDatePickerDialog(Button button, TextView selectedDateText) {
         Calendar calendar = Calendar.getInstance();
 

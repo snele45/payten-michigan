@@ -5,7 +5,8 @@
     <color name="purple_700">#F00E1D</color>
     <color name="teal_200">#6A0C00</color>
     <color name="teal_700">#FF0000</color>
-    <color name="black">#FF000000</color>
+    <color name ="crnaboja">#000000</color>
+    <color name="black">#FFFFFF</color>
     <color name="white">#F6F6F6F6</color>
     <color name="payten_red">#F00E1D</color>
 </resources>
