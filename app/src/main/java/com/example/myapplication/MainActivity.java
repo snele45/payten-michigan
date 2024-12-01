@@ -53,6 +53,33 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
+    private ConstraintLayout mainScreen;
+    private ConstraintLayout resultScreen;
+    private ConstraintLayout systemScreen;
+
+    TextView resultText;
+    ImageButton btnPrint;
+    Button btnOk;
+    ImageButton btnSystemClose;
+    ImageButton btnSystemOk;
+    ProgressBar progressBar;
+    CountDownTimer resultScreenTimer;
+
+    private final Handler handler = new Handler(Looper.getMainLooper());
+
+    private PaytenAidlInterface paytenAidlInterface;
+    private final Executor executor = Executors. newSingleThreadExecutor();
+    public static final int ECR_NONE = 0;
+    public static final int ECR_TRANSACTION = 1;
+    public static final int ECR_SETTLE = 2;
+    public static final int ECR_VOID = 3;
+    public static int ecrAction = ECR_NONE;
+
+    EcrJsonRsp resp = null;
+    private boolean serviceOrPayment = true;
+    private boolean android10Spec = false;
+    private BigDecimal billTotal = new BigDecimal("145.23");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button nextStepButton = findViewById(R.id.nextStepButton);
 
-     //    nextStepButton.setOnClickListener(this);
+        //    nextStepButton.setOnClickListener(this);
 
     }
 
@@ -177,12 +204,12 @@ public class MainActivity extends AppCompatActivity {
             else if (ecrAction == ECR_VOID){
                 if (resp != null && resp.response != null && resp.response.financial != null && resp.response.financial.result != null &&
                         resp.response.financial.result.code != null && resp.response.financial.result.code.equals(EcrResponseCode.approved)) {
-                  //  MyApp.transactionList.get(voidTranIndex).voided = true;
+                    //  MyApp.transactionList.get(voidTranIndex).voided = true;
                     TransactionUtils.storeTransactions(MyApp.transactionList);
 
                     // Display settlement success
                     resultText.setText("Void successful.");
-                 //   resultText.setTextColor(getColor(R.color.green));
+                    //   resultText.setTextColor(getColor(R.color.green));
                 }
                 else{
                     // Display void failed
@@ -192,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-   public void performPayment(){
+    public void performPayment(){
         EcrJsonReq ecrJsonReq = new EcrJsonReq();
         ecrJsonReq.header = new EcrJsonReq.Header();
         ecrJsonReq.request = new EcrJsonReq.Request();
@@ -240,14 +267,14 @@ public class MainActivity extends AppCompatActivity {
             try {
 
 
-                    if (paytenAidlInterface != null) {
-                        String resultData = paytenAidlInterface.ecrResponse(json);
-                        handler.post(() -> {
-                            Log.d("ECR", "Response received: " + resultData);
-                            resp = processEcrResponse(resultData);
-                            //returnToMainScreen();
-                        });
-                    }
+                if (paytenAidlInterface != null) {
+                    String resultData = paytenAidlInterface.ecrResponse(json);
+                    handler.post(() -> {
+                        Log.d("ECR", "Response received: " + resultData);
+                        resp = processEcrResponse(resultData);
+                        //returnToMainScreen();
+                    });
+                }
 
             } catch (RemoteException e) {
                 e.printStackTrace();
