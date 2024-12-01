@@ -26,6 +26,7 @@ import java.math.BigDecimal;
 public class PassportFragment extends Fragment {
 
     private NfcAdapter nfcAdapter;
+    private int price;
     private Handler handler = new Handler();
 
     public static PassportFragment newInstance() {
@@ -36,6 +37,11 @@ public class PassportFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_passport, container, false);
+        if (getArguments() != null) {
+            price = getArguments().getInt("price");
+            // Use tmpValue as needed within your fragment
+        }
+
         initializeNfcAdapter();
         return view;
     }
@@ -94,7 +100,7 @@ public class PassportFragment extends Fragment {
             buttonContinue.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v){
-                    BigDecimal bd = new BigDecimal(1190);
+                    BigDecimal bd = new BigDecimal(price);
                     ((MainActivity)getActivity()).performPayment( bd );
                 }
                 //    NavController navController = Navigation.findNavController(v);
