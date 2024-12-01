@@ -51,7 +51,7 @@ public class PassportFragment extends Fragment {
         if (context != null) {
             nfcAdapter = NfcAdapter.getDefaultAdapter(context);
             if (nfcAdapter == null) {
-           //     Toast.makeText(context, "NFC is not available on this device.", Toast.LENGTH_LONG).show();
+                //     Toast.makeText(context, "NFC is not available on this device.", Toast.LENGTH_LONG).show();
             } else if (!nfcAdapter.isEnabled()) {
                 Toast.makeText(context, "NFC is disabled.", Toast.LENGTH_LONG).show();
             }
@@ -101,7 +101,7 @@ public class PassportFragment extends Fragment {
                 @Override
                 public void onClick(View v){
                     BigDecimal bd = new BigDecimal(price);
-                    ((MainActivity)getActivity()).performPayment( bd );
+                    ((MainActivity)getActivity()).performPayment( bd , 1, dialog);
                 }
                 //    NavController navController = Navigation.findNavController(v);
                 //  navController.navigate(R.id.action_nav_insurancePackages_to_nav_travelInfo);

@@ -1,20 +1,25 @@
 package com.example.myapplication;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -25,11 +30,11 @@ import com.example.myapplication.ecr.EcrResponseCode;
 import com.example.myapplication.transaction.TransactionData;
 import com.example.myapplication.transaction.TransactionUtils;
 import com.example.myapplication.utils.HashUtils;
-import com.example.myapplication.utils.Utils;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -42,14 +47,13 @@ import com.google.gson.Gson;
 import com.payten.service.PaytenAidlInterface;
 
 import java.math.BigDecimal;
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
-
+    private int toggle = 0;
+    private AlertDialog dialog;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
@@ -68,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     private final Handler handler = new Handler(Looper.getMainLooper());
 
     private PaytenAidlInterface paytenAidlInterface;
+    private NavController navController;
     private final Executor executor = Executors. newSingleThreadExecutor();
     public static final int ECR_NONE = 0;
     public static final int ECR_TRANSACTION = 1;
@@ -105,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_home)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
@@ -214,7 +219,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    public void performPayment(BigDecimal bd){
+    public void performPayment(BigDecimal bd, int i, AlertDialog dialog){
+        toggle = i;
+        this.dialog = dialog;
         EcrJsonReq ecrJsonReq = new EcrJsonReq();
         ecrJsonReq.header = new EcrJsonReq.Header();
         ecrJsonReq.request = new EcrJsonReq.Request();
@@ -313,7 +320,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("ecrJson", json);
 
             intent.putExtra("senderIntentFilter", "senderIntentFilter");
-            intent.putExtra("senderPackage", getPackageName());
+            intent.putExtra("senderPackage", "com.example.myapplication");
             intent.putExtra("senderClass", "com.example.myapplication.MainActivity");
             intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
             getApplicationContext().sendBroadcast(intent);
@@ -370,6 +377,108 @@ public class MainActivity extends AppCompatActivity {
         }
         return s;
     }
+    public void handleECRResponse(String responseJson) {
+        Log.d("MainActivity", "Handling ECR response: " + responseJson);
 
+        // Parse the response and handle it appropriately
+        EcrJsonRsp response = processEcrResponse(responseJson);
+        if (response != null) {
+            this.resp = response; // Update the current response
+            showResultScreen(false); // Show the result screen with the updated response
+        } else {
+            Log.e("MainActivity", "Failed to parse ECR response.");
+        }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MyApp.currentActivity = this;
+        System.out.println(toggle);
+        if (toggle == 1){
+            dialog.dismiss();
+            navController.navigate(R.id.nav_home);
+            this.showSuccessDialog(this);
+
+        }else if (toggle == 2) {
+            navController.navigate(R.id.nav_qrcode);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MyApp.currentActivity = null;
+    }
+    public void showSuccessDialog(Context context) {
+        // Create a container layout for the dialog
+        LinearLayout dialogLayout = new LinearLayout(context);
+        dialogLayout.setOrientation(LinearLayout.VERTICAL);
+        dialogLayout.setPadding(32, 32, 32, 32); // Padding in pixels
+        dialogLayout.setBackgroundColor(Color.WHITE);
+
+        // Create the success icon
+        ImageView successIcon = new ImageView(context);
+        successIcon.setImageResource(R.drawable.icons8_tick); // Replace with your green tick drawable
+        LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        iconParams.gravity = Gravity.CENTER_HORIZONTAL; // Center the icon horizontally
+        iconParams.setMargins(0, 16, 0, 16);
+        successIcon.setLayoutParams(iconParams);
+
+        // Create the success message
+        TextView successMessage = new TextView(context);
+        successMessage.setText("Success!");
+        successMessage.setTextSize(20);
+        successMessage.setTextColor(Color.BLACK);
+        successMessage.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        ));
+        successMessage.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        // Create the thank-you message
+        TextView thankYouMessage = new TextView(context);
+        thankYouMessage.setText("Thank you for your transaction!");
+        thankYouMessage.setTextSize(16);
+        thankYouMessage.setTextColor(Color.GRAY);
+        LinearLayout.LayoutParams messageParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        messageParams.setMargins(0, 16, 0, 16); // Add spacing between the text
+        thankYouMessage.setLayoutParams(messageParams);
+        thankYouMessage.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        // Create the "Dismiss" button
+        Button dismissButton = new Button(context);
+        dismissButton.setText("Dismiss");
+        dismissButton.setBackground(ContextCompat.getDrawable(context, R.drawable.home_button_red_small)); // Rounded button background
+        dismissButton.setTextColor(Color.WHITE);
+        LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        buttonParams.setMargins(0, 24, 0, 0); // Add top margin
+        dismissButton.setLayoutParams(buttonParams);
+        dismissButton.setPadding(16, 16, 16, 16);
+
+        // Add views to the layout
+        dialogLayout.addView(successIcon);
+        dialogLayout.addView(successMessage);
+        dialogLayout.addView(thankYouMessage);
+        dialogLayout.addView(dismissButton);
+
+        // Create and show the dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setView(dialogLayout);
+        AlertDialog dialog = builder.create();
+
+        // Set dismiss button click listener
+        dismissButton.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
+    }
 
 }

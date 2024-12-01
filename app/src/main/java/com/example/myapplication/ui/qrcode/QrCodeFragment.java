@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -42,16 +41,6 @@ public class QrCodeFragment extends Fragment {
             // Use tmpValue as needed within your fragment
         }
         generateQrCode("https://www.youtube.com/watch?v=BHAJS4G75NI");
-
-        Button payButton = view.findViewById(R.id.payNowButton);
-
-        payButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BigDecimal bd = new BigDecimal(price);
-                ((MainActivity)getActivity()).performPayment((bd));
-            }
-        });
 
         return view;
     }

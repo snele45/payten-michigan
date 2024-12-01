@@ -7,15 +7,16 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
+
+import java.math.BigDecimal;
 
 public class ESimPacketsFragment extends Fragment {
 
@@ -34,23 +35,17 @@ public class ESimPacketsFragment extends Fragment {
 
         Button toEsimQrCodeButtonBasic = view.findViewById(R.id.esimBasicPackageButton);
         toEsimQrCodeButtonBasic.setOnClickListener(v -> {
-            NavController navController = Navigation.findNavController(v);Bundle bundle = new Bundle();
-            bundle.putInt("price", 990); // Hardcoded for demonstration
-            navController.navigate(R.id.action_nav_e_sim_packet_to_nav_qrcode, bundle);
+            ((MainActivity)getActivity()).performPayment(new BigDecimal(990), 2, null);
         });
 
         Button toEsimQrCodeButtonStandard = view.findViewById(R.id.esimStandardPackageButton);
         toEsimQrCodeButtonStandard.setOnClickListener(v -> {
-            NavController navController = Navigation.findNavController(v);Bundle bundle = new Bundle();
-            bundle.putInt("price", 1990); // Hardcoded for demonstration
-            navController.navigate(R.id.action_nav_e_sim_packet_to_nav_qrcode, bundle);
+            ((MainActivity)getActivity()).performPayment(new BigDecimal(1990), 2, null);
         });
 
         Button toEsimQrCodeButtonPremium = view.findViewById(R.id.esimPremiumPackageButton);
         toEsimQrCodeButtonPremium.setOnClickListener(v -> {
-            NavController navController = Navigation.findNavController(v);Bundle bundle = new Bundle();
-            bundle.putInt("price", 2490 ); // Hardcoded for demonstration
-            navController.navigate(R.id.action_nav_e_sim_packet_to_nav_qrcode, bundle);
+            ((MainActivity)getActivity()).performPayment(new BigDecimal(2490), 2, null);
         });
 
         return view;    }
