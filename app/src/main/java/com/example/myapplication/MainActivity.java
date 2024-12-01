@@ -314,7 +314,7 @@ public class MainActivity extends AppCompatActivity {
 
             intent.putExtra("senderIntentFilter", "senderIntentFilter");
             intent.putExtra("senderPackage", getPackageName());
-            intent.putExtra("senderClass", "com.payten.ecrdemo.MainActivity");
+            intent.putExtra("senderClass", "com.example.myapplication.MainActivity");
             intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
             getApplicationContext().sendBroadcast(intent);
         }
